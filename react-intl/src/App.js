@@ -20,7 +20,8 @@ const messages = {
 }
 
 function App() {
-  const defaultLocale = navigator.language;
+  const isLocale = localStorage.getItem("locale");
+  const defaultLocale = isLocale ? isLocale : navigator.language;
   const [locale, setLocale] = useState(defaultLocale);
 
   useEffect(() =>{
