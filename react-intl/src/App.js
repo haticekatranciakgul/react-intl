@@ -4,15 +4,16 @@ import { useState, useEffect } from 'react';
 
 import { IntlProvider, FormattedMessage } from 'react-intl'
 
+
 const messages = {
   'tr-TR': {
     title: "Merhaba Dünya",
-    description: '3 yeni mesajınız var'
+    description: '{count} yeni mesajınız var'
 
   },
   'en-US':{
     title: "Hello World",
-    description: 'You have 3 messages'
+    description: 'You have {count} messages'
 
 
   }
@@ -29,7 +30,6 @@ function App() {
 
   },[locale])
 
-  console.log(locale)
 
   return (
     <div className="App">
@@ -37,7 +37,7 @@ function App() {
       <IntlProvider locale={locale} messages={messages[locale]}>
       <FormattedMessage id="title"/>
         <p>
-          <FormattedMessage id="description"/>
+          <FormattedMessage id="description" values={{ count: 5 }}/>
         </p>
         <br></br>
         <br></br>
